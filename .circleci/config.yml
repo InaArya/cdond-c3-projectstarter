@@ -93,6 +93,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - run: npm audit --audit-level=critical
       - run: npm run build
 
   scan-backend:
@@ -101,6 +102,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - run: npm audit --audit-level=critical
       - run: npm run build
 
   deploy-infrastructure:
