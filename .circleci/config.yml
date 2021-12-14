@@ -65,7 +65,7 @@ jobs:
              cd backend
              npm install
              npm audit fix --audit-level=critical
-             run `npm fund`
+             npx reflect-metadata @nestjs/cqrs ajv-keywords ajv winston-slack-webhook winston glee2
              npm run build
              exit 1
       - save_cache:
