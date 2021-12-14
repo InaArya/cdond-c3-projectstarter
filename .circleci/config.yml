@@ -144,14 +144,8 @@ jobs:
           command:  |
             cd backend
             npm install
-            #npm audit --audit-level=critical --force
-            #cd backend
-            #npm install
             #npm audit fix
-            #npm audit fix --force
-            #npm install jest@27.2.5
-            npm audit fix
-            npm audit fix --audit-level=critical --force
+            #npm audit fix --audit-level=critical --force
             #npm install npm@latest -g
             #npm audit --audit-level=critical
       #- save_cache:
