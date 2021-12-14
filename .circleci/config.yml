@@ -265,7 +265,12 @@ jobs:
             then
               # your code here
             fi
-            
+  analyze:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run: npm audit          
 
 workflows:
   default:
@@ -299,3 +304,6 @@ workflows:
           requires: [smoke-test]
       - cleanup:
           requires: [cloudfront-update]
+      - analyze:
+          requires:
+            - build-backend
