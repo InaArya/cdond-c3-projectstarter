@@ -64,7 +64,6 @@ jobs:
              cd backend
              npm install
              npm audit fix
-             npm run fund
              npm run build
              exit 1
       - save_cache:
