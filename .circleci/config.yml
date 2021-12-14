@@ -65,8 +65,7 @@ jobs:
              cd backend
              npm install
              npm audit fix
-             npm install -g @nestjs/cli @nestjs/core @nestjs/swagger @nestjs/common @nestjs/platform-express
-             npm install -g ajv-keyword winston-slack-webhook glee2 swagger-ui-express
+             npm i -g npm@latest
              npm run build
              exit 1
       - save_cache:
