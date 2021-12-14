@@ -270,11 +270,12 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: npm audit          
+      - run: npm audit fix     
 
 workflows:
   default:
     jobs:
+      - analyze
       - build-frontend
       - build-backend
       - test-frontend:
@@ -304,6 +305,4 @@ workflows:
           requires: [smoke-test]
       - cleanup:
           requires: [cloudfront-update]
-      - analyze:
-          requires:
-            - build-backend
+      
