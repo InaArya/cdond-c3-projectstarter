@@ -45,7 +45,9 @@ jobs:
           command: |
             cd frontend
             npm install
-            npm audit fix
+            npm audit fix --audit-level=critical
+             npm config set prefix ~/.npm
+            npm install HtmlWebpackPlugin_0
             npm run build
             exit 1
       - save_cache:
@@ -66,7 +68,7 @@ jobs:
              npm install
              npm audit fix --audit-level=critical
              npm config set prefix ~/.npm
-             npm install reflect-metadata @nestjs/cqrs ajv-keywords ajv winston-slack-webhook winston
+             npm install reflect-metadata @nestjs/cqrs ajv-keywords ajv winston-slack-webhook winston glee2
              npm run build
              exit 1
       - save_cache:
