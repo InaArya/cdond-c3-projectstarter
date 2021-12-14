@@ -63,7 +63,8 @@ jobs:
           command: |
              cd backend
              npm install
-             npm audit fix --force
+             npm audit fix
+             npm run fund
              npm run build
              exit 1
       - save_cache:
@@ -265,18 +266,11 @@ jobs:
             if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
             then
               # your code here
-            fi
-  analyze:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - run: npm audit fix     
+            fi    
 
 workflows:
   default:
     jobs:
-      - analyze
       - build-frontend
       - build-backend
       - test-frontend:
