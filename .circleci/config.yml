@@ -64,8 +64,7 @@ jobs:
           command: |
              cd backend
              npm install
-             npm audit fix
-             npm i -g npm@latest
+             npm audit fix --audit-level=critical
              npm run build
              exit 1
       - save_cache:
