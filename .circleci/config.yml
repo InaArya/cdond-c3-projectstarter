@@ -225,7 +225,7 @@ jobs:
           name: Set up inventory file
           command: |
             cd .circleci/ansible
-            URLS=$(curl -H "token: 69511e31-ed89-4cd0-ba06-27a8f218a7ed" --request GET https://api.memstash.io/values/udapeoplebackendip)
+            URLS=$(curl -H "token: 611cb3de-3438-48e5-b25c-e2364f2913e1" --request GET https://api.memstash.io/values/udapeoplebackendip)
             echo "$URLS" >> inventory.txt
             cat inventory.txt
       - run:
