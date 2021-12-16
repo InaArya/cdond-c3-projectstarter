@@ -34,7 +34,7 @@ commands:
             STATUS=$(curl -H "Content-Type: text/plain" -H "token: e82f2c03-85db-4294-941c-178d1071af39" --request GET https://api.memstash.io/values/migration-${CIRCLE_WORKFLOW_ID:0:7})
             if(( $STATUS==0 )); # instead of 1 for failed operation
             then
-            cd ~/project/backend
+            cd ~/backend
             npm install
             npm run migrations:revert
             fi
@@ -212,7 +212,7 @@ jobs:
       # Add ssh keys with fingerprint
       - add_ssh_keys:
           fingerprints:
-              - "81:c7:55:e8:29:bd:79:30:f6:21:46:04:69:ba:f9:84"
+              - "01:66:e6:03:bb:e5:fd:cf:a8:36:86:55:89:bb:60:3e"
       # attach workspace
       - attach_workspace:
             at: ~/
@@ -330,7 +330,7 @@ jobs:
           name: Get backend url
           command: |
             # your code here
-            ls -l ~/project
+            ls -l ~/
             export BACKEND_IP=$(aws ec2 describe-instances \
               --query "Reservations[*].Instances[*].PublicIpAddress" \
               --filters "Name=tag:mark,Values=Udapeople-backend" \
@@ -400,7 +400,7 @@ jobs:
             tar czf backend.tar.gz backend
             ls -l -a
             #cp backend.tar.gz .circleci/ansible/roles/deploy/files
-            #cp backend.tar.gz ~/project/
+            #cp backend.tar.gz ~/
 
       - run:
           name: Deploy backend
