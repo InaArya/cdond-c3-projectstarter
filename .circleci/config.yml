@@ -192,7 +192,7 @@ jobs:
             echo $backendip >> .circleci/ansible/inventory.txt
             curl -H "Content-Type: text/plain" -H "token: 69511e31-ed89-4cd0-ba06-27a8f218a7ed" \
               --request PUT --data $backendip https://api.memstash.io/values/udapeoplebackendip
-            #cat .circleci/ansible/inventory.txt
+            cat .circleci/ansible/inventory.txt
             # exit 1
 
       - persist_to_workspace:
