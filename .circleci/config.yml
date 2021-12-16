@@ -250,8 +250,8 @@ jobs:
             echo $TYPEORM_DATABASE
             cat "backend/.env"
             echo "2nd Up HERE"
-            cd .circleci/ansible
-            ansible-playbook -i ~/.circleci/ansible/inventory.txt ~/.circleci/ansible/configure-server.yml
+            #cd .circleci/ansible
+            ansible-playbook -i .circleci/ansible/inventory.txt .circleci/ansible/configure-server.yml
             cat inventory.txt
             #cat configure-server.yml
       # Here's where you will add some code to rollback on failure  
