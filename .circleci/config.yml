@@ -196,7 +196,7 @@ jobs:
             # exit 1
 
       - persist_to_workspace:
-          root: ~/project
+          root: ~/
           paths:
             - project/.circleci/ansible/inventory.txt
       # Here's where you will add some code to rollback on failure  
@@ -215,7 +215,7 @@ jobs:
               - "81:c7:55:e8:29:bd:79:30:f6:21:46:04:69:ba:f9:84"
       # attach workspace
       - attach_workspace:
-            at: ~/project
+            at: ~/
       - run:
           name: Install dependencies
           command: |
@@ -324,7 +324,7 @@ jobs:
             yum -y install nodejs 
 
       - attach_workspace:
-          at: ~/project
+          at: ~/
 
       - run:
           name: Get backend url
@@ -367,7 +367,7 @@ jobs:
               - "01:66:e6:03:bb:e5:fd:cf:a8:36:86:55:89:bb:60:3e"
       # attach workspace
       - attach_workspace:
-            at: ~/project
+            at: ~/
       - run:
           name: Install dependencies
           command: |
@@ -492,7 +492,7 @@ jobs:
           command: |
             yum -y install tar gzip 
       - attach_workspace:
-            at: ~/project
+            at: ~/
       - run:
           name: Install dependencies
           command: |
@@ -531,7 +531,7 @@ jobs:
             command: |
               yum -y install tar gzip 
         - attach_workspace:
-              at: ~/project
+              at: ~/
         - run:
             name: Get old stack workflow id
             command: |
