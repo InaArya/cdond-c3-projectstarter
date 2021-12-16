@@ -335,9 +335,9 @@ jobs:
               --query "Reservations[*].Instances[*].PublicIpAddress" \
               --filters "Name=tag:mark,Values=Udapeople-backend" \
               --output=text)
-            export API_URL="http://52.87.189.197:3030"
+            export API_URL="${API_URL}:3030"
             echo "API_URL = ${API_URL}"
-            echo API_URL="http:/52.87.189.197:3030" >> frontend/.env
+            echo API_URL="${API_URL}:3030" >> frontend/.env
             cat frontend/.env
       - run:
           name: Deploy frontend objects
