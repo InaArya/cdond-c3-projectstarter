@@ -440,7 +440,7 @@ jobs:
 
 
             export API_URL="http://${BACKEND_IP}:3030"
-            echo "${API_URL}"
+            echo BACKEND_IP = "${BACKEND_IP}"
             if curl "${API_URL}/api/status" | grep "ok"
             then
                 return 0
