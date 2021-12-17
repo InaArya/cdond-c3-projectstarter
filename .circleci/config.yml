@@ -246,6 +246,7 @@ jobs:
             sudo apt-get -y -qq update
             sudo apt-get -qq install awscli
             sudo apt-get -y -qq install python3
+            sudo npm install pm2 -g
 
       - run:
           name: create .env files
