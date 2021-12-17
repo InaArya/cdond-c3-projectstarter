@@ -278,7 +278,7 @@ jobs:
             #echo "Step 4"
             #touch mig_results.txt
             echo "Step 4"
-            #npm run migrations > mig_results.txt
+            npm run migrations > mig_results.txt
             echo "Step 6"
             #cat mig_results.txt
       - run:
