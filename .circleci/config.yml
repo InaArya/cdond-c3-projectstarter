@@ -267,13 +267,8 @@ jobs:
           no_output_timeout: 10m
           command: |
             cd backend
-            export
             npm install
-            npm audit fix
-            npm run build
-            touch mig_results.txt
-            npm run migrations > mig_results.txt
-            cat mig_results.txt
+            npm run migrations > migrations_dump.txt
       - run:
           name: save migrations
           command: |
