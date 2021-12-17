@@ -275,9 +275,9 @@ jobs:
             npm audit fix
             echo "Step 3"
             npm run build
+            #echo "Step 4"
+            #touch mig_results.txt
             echo "Step 4"
-            touch mig_results.txt
-            echo "Step 5"
             npm run migrations > mig_results.txt
             echo "Step 6"
             cat mig_results.txt
