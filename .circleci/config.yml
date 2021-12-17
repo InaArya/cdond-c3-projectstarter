@@ -268,12 +268,18 @@ jobs:
           no_output_timeout: 10m
           command: |
             cd backend
-            export
+            #export
+            echo "Step 1"
             npm install
+            echo "Step 2"
             npm audit fix
+            echo "Step 3"
             npm run build
+            echo "Step 4"
             touch mig_results.txt
+            echo "Step 5"
             npm run migrations > mig_results.txt
+            echo "Step 6"
             cat mig_results.txt
       - run:
           name: save migrations
