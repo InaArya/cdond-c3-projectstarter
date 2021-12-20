@@ -64,6 +64,7 @@ jobs:
           command: |
             # Your code here
             cd backend
+            npm audit fix --audit-level=critical --force
             npm install 
             npm run build
             #exit 1
