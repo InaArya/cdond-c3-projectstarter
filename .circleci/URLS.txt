@@ -1,3 +1,0 @@
-GitHub URL - https://github.com/InaArya/cdond-c3-projectstarter.git
-S3 Bucket URL - http://udapeople-d20daff.s3.amazonaws.com/
-Prometheus URL = http://ec2-3-87-72-165.compute-1.amazonaws.com:9090/targets
