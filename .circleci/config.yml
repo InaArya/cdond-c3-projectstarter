@@ -402,7 +402,7 @@ jobs:
             cd ..
             tar czf backend.tar.gz backend
             ls -l -a
-            #cp backend.tar.gz /root/project
+            cp backend.tar.gz /home/ubuntu
             #cp backend.tar.gz ~/
 
       - run:
@@ -439,7 +439,7 @@ jobs:
           name: Install dependencies
           command: |
             # your code here
-            yum -y install tar gzip
+            #yum -y install tar gzip
             apk add --update tar gzip ansible nodejs npm curl zip
             pip install awscli
       - run:
