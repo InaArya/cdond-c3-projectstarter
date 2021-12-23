@@ -396,7 +396,7 @@ jobs:
             cd .circleci/ansible
             backendip=$(aws ec2 describe-instances \
               --query "Reservations[*].Instances[*].PublicIpAddress" \
-              --filters "Name=tag:mark,Values=Udapeople-backend" \
+              --filters "Name=tag:project,Values=Udacity-Project3" \
               --output=text)
             ls -l -a
             #echo $backendip >> .circleci/ansible/inventory.txt
@@ -435,7 +435,7 @@ jobs:
             then
               exit 0
             else
-              #exit 1
+              exit 1
             fi  
       - run:
           name: Frontend smoke test.
