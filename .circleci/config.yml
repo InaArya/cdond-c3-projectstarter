@@ -416,6 +416,7 @@ jobs:
               --output=text)
             ls -l -a
             #echo $backendip >> .circleci/ansible/inventory.txt
+            export backendip = http://$backendip/
             echo $backendip >> inventory.txt
             echo "Contents  of the inventory.txt file is -------"
             cat inventory.txt
