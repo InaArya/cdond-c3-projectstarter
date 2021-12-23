@@ -402,7 +402,7 @@ jobs:
             cd ..
             tar czf backend.tar.gz backend
             ls -l -a
-            #cp backend.tar.gz .circleci/ansible/roles/deploy/files
+            cp backend.tar.gz /root/project/.
             #cp backend.tar.gz ~/
 
       - run:
