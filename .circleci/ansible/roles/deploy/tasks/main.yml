@@ -8,8 +8,9 @@
 
 - name: Copy backend dist files to remote server
   copy:
-    src: /root/project/backend/dist
+    src: /root/project/backend
     dest: /home/ubuntu/backend
+    force: no
     remote_src: yes
     mode: '0777'
 
