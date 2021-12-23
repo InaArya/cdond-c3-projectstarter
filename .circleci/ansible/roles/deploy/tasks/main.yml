@@ -8,14 +8,17 @@
 
 - name: Copy backend dist files to remote server
   copy:
-    src: /root/project/backend
-    dest: /home/ubuntu
+    src: /root/project/backend_artifact.tar.gz
+    dest: ~/home/ubuntu
 
 - name: Install Node modules
   shell: |
-    cd /home/ubuntu/backend
-    npm install
-    npm install --only=dev
+    tar -xzvf backend_artifact.tar.gz -C backend
+    rm backend_artifact.tar.gz
+    cd backend/
+    npm run build
+    cd dist
+    pm2 start npm --name backend -- start
     
 - name: Building backend service
   shell: |
