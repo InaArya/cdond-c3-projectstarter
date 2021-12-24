@@ -1,6 +1,6 @@
 - name: "unarchive backend files"
   unarchive:
-    src: api.tar.gz
+    src: backend.tar.gz
     dest: /home/ubuntu/
 
 - name: "executing node"
