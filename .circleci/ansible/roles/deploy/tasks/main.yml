@@ -1,39 +1,11 @@
----
-- name: "Copy dist files"
-  become: true
-  copy:
-    src: ~/project/backend/backend.tar.gz
-    dest: /home/ubuntu/backend.tar.gz
+- name: "unarchive backend files"
+  unarchive:
+    src: api.tar.gz
+    dest: /home/ubuntu/
 
-- name: Install Node modules
+- name: "executing node"
   shell: |
-    cd /home/ubuntu
-    tar -xzvf backend.tar.gz -C backend
-    rm backend.tar.gz
-    cd /home/ubuntu/backend
-    npm install
-    npm install --only=dev
-    
-- name: Building backend service
-  shell: |
-    cd /home/ubuntu/backend
-    npm run build
-    npm run prestart:prod
-        
-- name: Executing node
-  become: true
-  shell: |
-    cd /home/ubuntu/backend
-    pm2 start npm --name backend -- start
+    cd /home/ubuntu/backend/dist
+    pm2 stop default
+    pm2 start npm --name 'udapeople' -- start
     pm2 ls
-- name: Building node service
-  shell: |
-    cd /home/ubuntu/backend
-    npm run build
-    npm run prestart:prod
-    
-- name: start pm2 for dist/main.js
-  become: no
-  shell: pm2 start main.js
-  args:
-    chdir: /home/ubuntu/backend/dist
