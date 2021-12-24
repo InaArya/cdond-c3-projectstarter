@@ -395,16 +395,18 @@ jobs:
       - run:
           name: zip backend files
           command: |
-            ls -l -a
+            pwd
             cd backend
             npm i
             npm run build
             cd ..
+            pwd
             tar czf backend.tar.gz backend
             ls -l 
-            mv backend.tar.gz /root/project
+            #mv backend.tar.gz /root/project
             cd /root/project
             ls -l
+            cp /root/project/backend.tar.gz /home/ubuntu/.
             #cp backend.tar.gz /home/ubuntu
             #cp backend.tar.gz ~/
 
