@@ -1,8 +1,15 @@
 ---
-#- name: Copy backend dist files to remote server
- # copy:
-  #  src: /root/project/backend.tar.gz
-   # dest: /home/ubuntu/backend.tar.gz
+- name: "Make backend dir"
+  file:
+    path: /home/ubuntu/backend
+    state: directory
+
+
+- name: "Copy dist files"
+  become: true
+  copy:
+    src: /root/project/backend.tar.gz
+    dest: /home/ubuntu/backend/backend.tar.gz
 
 - name: Install Node modules
   shell: |
