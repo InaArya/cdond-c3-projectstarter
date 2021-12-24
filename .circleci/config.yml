@@ -406,6 +406,7 @@ jobs:
             cd .circleci/ansible/roles/deploy
             mkdir files
             #sudo chmod 777 files
+            cd /root/project/
             cp backend.tar.gz .circleci/ansible/roles/deploy/files/
             ls -l
             #mv backend.tar.gz /home/ubuntu
