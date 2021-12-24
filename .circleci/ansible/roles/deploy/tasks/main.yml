@@ -3,15 +3,3 @@
     src: backend.tar.gz
     dest: /home/ubuntu/
 
-- name: "install dependency"
-  become: true
-  shell: "npm install"
-  args:
-    chdir: "/home/ubuntu/backend"
-    
-- name: "executing node"
-  shell: |
-    cd /home/ubuntu/backend/dist
-    pm2 stop default
-    pm2 start npm --name 'udapeople' -- start
-    pm2 ls
