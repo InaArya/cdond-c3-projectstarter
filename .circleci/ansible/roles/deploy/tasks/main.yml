@@ -1,11 +1,16 @@
-#- name: "unarchive backend files"
- # unarchive:
-  #  src: backend.tar.gz
-   # dest: /home/ubuntu/
-
+- name: "unpack backend files"
+  become: yes
+  shell: |
+    #cd ~/backend
+    tar -vxf backend.tar.gz
+    ls -l
+    rm -f artifact.tar.gz
+    
 - name: "executing node"
   shell: |
     cd /home/ubuntu/backend/dist
+    pwd
+    ls -l
     pm2 stop default
     pm2 start npm --name 'udapeople' -- start
     pm2 ls
