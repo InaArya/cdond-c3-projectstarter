@@ -376,6 +376,11 @@ jobs:
           command: |
             apk add --update tar gzip ansible nodejs npm curl zip
             pip install awscli
+            udo apt update
+            sudo apt install software-properties-common
+            sudo add-apt-repository --yes --update ppa:ansible/ansible
+            sudo apt install ansible
+            pip install awscli
       - run:
           name: create .env files
           command: |
@@ -391,7 +396,11 @@ jobs:
             echo TYPEORM_USERNAME=$TYPEORM_USERNAME >> "backend/.env"
             echo TYPEORM_PASSWORD=$TYPEORM_PASSWORD >> "backend/.env"
             echo TYPEORM_DATABASE=$TYPEORM_DATABASE >> "backend/.env"
-
+      - run:
+          name: install node modules
+          command: |
+            cd /root/project/backend
+            npm install
       - run:
           name: zip backend files
           command: |
@@ -432,10 +441,10 @@ jobs:
             ansible-playbook -i inventory.txt deploy-backend.yml
 
       # Here's where you will add some code to rollback on failure  
-     # - revert-migrations:
-      #    workflow_id: ${CIRCLE_WORKFLOW_ID}
-     # - destroy-environment:
-      #    workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
+      - revert-migrations:
+          workflow_id: ${CIRCLE_WORKFLOW_ID}
+      - destroy-environment:
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
 
   smoke-test:
