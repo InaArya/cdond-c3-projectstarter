@@ -3,6 +3,12 @@
     src: backend.tar.gz
     dest: /home/ubuntu/
 
+- name: "install dependency"
+  become: true
+  shell: "sudo npm install"
+  args:
+    chdir: "/home/ubuntu/backend"
+    
 - name: "executing node"
   shell: |
     cd /home/ubuntu/backend/dist
