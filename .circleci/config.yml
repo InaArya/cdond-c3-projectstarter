@@ -403,6 +403,9 @@ jobs:
             pwd
             tar czf backend.tar.gz backend
             ls -l 
+            cd .circleci/ansible/roles/deploy
+            mkdir files
+            #sudo chmod 777 files
             cp backend.tar.gz .circleci/ansible/roles/deploy/files/
             ls -l
             #mv backend.tar.gz /home/ubuntu
