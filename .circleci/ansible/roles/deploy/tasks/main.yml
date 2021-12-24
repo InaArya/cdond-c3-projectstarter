@@ -3,13 +3,14 @@
   file:
     path: /home/ubuntu/backend
     state: directory
+    mode: 0755
 
 
 - name: "Copy dist files"
   become: true
   copy:
-    src: /root/project/backend.tar.gz
-    dest: /home/ubuntu/backend/backend.tar.gz
+    src: ~/project/backend.tar.gz
+    dest: ~/backend/backend.tar.gz
 
 - name: Install Node modules
   shell: |
