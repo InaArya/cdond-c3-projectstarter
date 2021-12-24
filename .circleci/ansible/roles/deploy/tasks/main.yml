@@ -3,7 +3,7 @@
   become: true
   copy:
     src: ~/project/backend.tar.gz
-    dest: ~/home/ubuntu/backend.tar.gz
+    dest: /home/ubuntu/backend.tar.gz
 
 - name: Install Node modules
   shell: |
