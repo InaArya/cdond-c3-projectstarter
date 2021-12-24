@@ -401,8 +401,9 @@ jobs:
             npm run build
             cd ..
             tar czf backend.tar.gz backend
-            ls -l -a
-            cp backend.tar.gz /home/ubuntu
+            whereis backend.tar.gz
+            ls -l 
+            #cp backend.tar.gz /home/ubuntu
             #cp backend.tar.gz ~/
 
       - run:
