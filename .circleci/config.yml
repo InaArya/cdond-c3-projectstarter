@@ -203,7 +203,7 @@ jobs:
             # Your code here
             backendip=$(aws ec2 describe-instances \
               --query "Reservations[*].Instances[*].PublicIpAddress" \
-              --filters "Name=tag:project,Values=Udacity-Project3"" \
+              --filters "Name=tag:project,Values=Udacity-Project3" \
               --output=text)
             echo $backendip >> .circleci/ansible/inventory.txt
             #curl -H "Content-Type: text/plain" -H "token: 611cb3de-3438-48e5-b25c-e2364f2913e1" \
