@@ -325,6 +325,13 @@ jobs:
             yum -y install tar gzip 
             curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
             yum -y install nodejs 
+            
+      - run:
+          name: create .env files
+          command: |
+            echo ENVIRONMENT=production  > "frontend/.env" 
+            echo NODE_ENV=production > "frontend/.env"
+            cat frontend/.env
 
       - attach_workspace:
           at: ~/
@@ -341,14 +348,7 @@ jobs:
             export API_URL="${BACKEND_IP}"
             #echo "API_URL = ${API_URL}"
             echo API_URL="${API_URL}:3030" >> frontend/.env
-            
-      - run:
-          name: create .env files
-          command: |
-            echo ENVIRONMENT=production  > "frontend/.env" 
-            echo NODE_ENV=production > "frontend/.env"
-            cat frontend/.env
-
+       
       - run:
           name: Deploy frontend objects
           command: |
