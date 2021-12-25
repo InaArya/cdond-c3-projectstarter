@@ -338,8 +338,8 @@ jobs:
               --query "Reservations[*].Instances[*].PublicIpAddress" \
               --filters "Name=tag:project,Values=Udacity-Project3" \
               --output=text)
-            export API_URL="${API_URL}:3030"
-            echo "API_URL = ${API_URL}"
+            export API_URL="${BACKEND_IP}"
+            #echo "API_URL = ${API_URL}"
             echo API_URL="${API_URL}:3030" >> frontend/.env
             cat frontend/.env
       - run:
