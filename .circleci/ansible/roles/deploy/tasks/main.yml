@@ -3,6 +3,23 @@
   unarchive: 
     dest: /home/ubuntu/
     src: backend.tar.gz
+    
+- name: "upgrade packages."
+  become: true
+  apt:
+    upgrade: "yes"
+- name: "install dependencies."
+  become: true
+  apt:
+    name: ["nodejs", "npm"]
+    update_cache: yes
+- name: "install pm2"
+  become: true
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
 
 - name: Start PM2
   shell: |
