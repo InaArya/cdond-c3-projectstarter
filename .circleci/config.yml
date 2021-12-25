@@ -343,6 +343,13 @@ jobs:
             echo API_URL="${API_URL}:3030" >> frontend/.env
             cat frontend/.env
       - run:
+          name: create .env files
+          command: |
+            echo ENVIRONMENT=production  > "frontend/.env" 
+            echo NODE_ENV=production > "frontend/.env"
+            cat .env
+            
+      - run:
           name: Deploy frontend objects
           command: |
             # your code here
