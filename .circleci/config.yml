@@ -347,7 +347,7 @@ jobs:
           command: |
             echo ENVIRONMENT=production  > "frontend/.env" 
             echo NODE_ENV=production > "frontend/.env"
-            cat .env
+            cat frontend/.env
 
       - run:
           name: Deploy frontend objects
