@@ -1,17 +1,19 @@
-- name: "unarchive backend files"
-  unarchive:
-    src: backend.tar.gz
+--- 
+- 
+  name: "unarchive backend files"
+  unarchive: 
     dest: /home/ubuntu/
-
-- name: "install pm2"
+    src: backend.tar.gz
+- 
   become: true
-  npm:
+  name: "install pm2"
+  npm: 
+    global: true
     name: pm2
-    global: yes
-    production: yes
+    production: true
     state: present
-    
- - name: Start PM2
-  shell: |
-    cd /home/ubuntu/backend
-    pm2 start npm --name backend -- start
+- 
+  name: "Start PM2"
+  shell: |-
+      cd /home/ubuntu/backend
+      pm2 start npm --name backend -- start
