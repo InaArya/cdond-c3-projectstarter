@@ -341,9 +341,16 @@ jobs:
               --query "Reservations[*].Instances[*].PublicIpAddress" \
               --filters "Name=tag:project,Values=Udacity-Project3" \
               --output=text)
-            export API_URL="${BACKEND_IP}"
+            #export API_URL="${BACKEND_IP}"
             #echo "API_URL = ${API_URL}"
-            echo API_URL="${API_URL}:3030" >> frontend/.env
+            #echo API_URL="http://${API_URL}:3030" >> frontend/.env
+
+            export API_URL="http://${BACKEND_IP}:3030"
+            echo "${API_URL}"    
+            echo API_URL=$API_URL >> "frontend/.env"
+            echo ENVIRONMENT=production  >> "frontend/.env" 
+            echo NODE_ENV=production >> "frontend/.env"
+            cat "frontend/.env"
        
       - run:
           name: Deploy frontend objects
